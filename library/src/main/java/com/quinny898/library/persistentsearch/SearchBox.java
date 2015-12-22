@@ -946,7 +946,9 @@ public class SearchBox extends RelativeLayout {
     public boolean dispatchKeyEvent(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.KEYCODE_BACK && getVisibility() == View.VISIBLE){
             hideCircularly((Activity) getContext());
-            return true;
+			// FIX: https://github.com/Quinny898/PersistentSearch/issues/82#issuecomment-157655769
+			// return false to flag event not handled
+            return false;
         }
 
         return super.dispatchKeyEvent(e);
